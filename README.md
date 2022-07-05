@@ -6,5 +6,5 @@ Technologies used:
 * Streamlit
 * Scikit-learn
 * Pandas
-* Scrapy (?) # maybe pandas will be enough for scarping wig20 components
+* BeautifulSoup4
 * Docker
