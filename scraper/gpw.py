@@ -1,5 +1,5 @@
 from datetime import date
-from typing import List, Dict
+from typing import List, Dict, Union
 
 import requests
 import pandas as pd
@@ -23,14 +23,14 @@ class Wig20Scraper:
 
         return base + "?req=" + req
 
-    def get_data(self) -> list:
+    def get_data(self) -> List[Dict[str, float]]:
         url = self.build_url()
         response = requests.get(url)
         return response.json()[0]["data"]
 
 
 def parse_data(data: List[Dict[str, float]]) -> pd.DataFrame:
-    data_dict = {
+    data_dict: Dict[str, List[Union[float, date]]] = {
         "date": [],
         "open": [],
         "close": [],
@@ -53,5 +53,6 @@ if __name__ == "__main__":
     end = date(2022, 7, 5)
     scraper = Wig20Scraper(start, end)
     data = scraper.get_data()
+    print(data)
     wig20_df = parse_data(data)
     print(wig20_df)
