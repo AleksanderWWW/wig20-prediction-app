@@ -17,6 +17,12 @@ class ScraperTest(unittest.TestCase):
             print(e)
             self.assertTrue(False)
             
+    def test_build_url(self):
+        correct_url = "https://gpwbenchmark.pl/chart-json.php?req=[{%22isin%22:%22PL9999999987%22,%22mode%22:%22RANGE%22,%22from%22:%222021-07-05%22,%22to%22:%222022-07-05%22}]"
+        scraper = Wig20Scraper(self.start, self.end)
+        url = scraper.build_url()
+        self.assertEqual(correct_url, url)
+        
             
 if __name__ == "__main__":
     unittest.main()
