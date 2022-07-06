@@ -45,7 +45,9 @@ def parse_data(data: List[Dict[str, float]]) -> pd.DataFrame:
         data_dict["min"].append(item["l"])
         data_dict["max"].append(item["h"])
 
-    return pd.DataFrame(data_dict)
+    df = pd.DataFrame(data_dict)
+    df.set_index("date", inplace=True)
+    return df
 
 
 if __name__ == "__main__":
