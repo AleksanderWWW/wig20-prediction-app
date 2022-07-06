@@ -12,7 +12,7 @@ class ScraperTest(unittest.TestCase):
     def test_scraper_instantiates(self):
         try:
             scraper = Wig20Scraper(self.start, self.end)
-            self.assertTrue(True)
+            self.assertTrue(bool(scraper))
         except Exception as e:
             print(e)
             self.assertTrue(False)
@@ -22,6 +22,19 @@ class ScraperTest(unittest.TestCase):
         scraper = Wig20Scraper(self.start, self.end)
         url = scraper.build_url()
         self.assertEqual(correct_url, url)
+        
+    def test_get_data_returns_list(self):
+        scraper = Wig20Scraper(self.start, self.end)
+        data = scraper.get_data()
+        
+        self.assertTrue(type(data) is list)
+        
+    def test_get_data_correct_length(self):
+        scraper = Wig20Scraper(self.start, self.end)
+        data = scraper.get_data()
+        
+        self.assertEqual(len(data), 253)
+        
         
             
 if __name__ == "__main__":
