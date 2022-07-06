@@ -13,9 +13,6 @@ data_raw = scraper.get_data()
 
 dataframe = gpw.parse_data(data_raw)
 
-item = dataframe.iloc[3, 4]
-
-
 st.title("Dummy title")
 
 st.write(f"""
@@ -23,5 +20,6 @@ st.write(f"""
 
 Dummy content.
 
-{item}
          """)
+
+st.dataframe(dataframe.iloc[:10, :])
