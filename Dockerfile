@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.9
 
 WORKDIR /wig20-prediction-app
 
@@ -8,4 +8,6 @@ RUN pip install -r requirements.txt
 
 COPY ./app ./app
 
-CMD [ "streamlit", "run", "./app/app.py" ]
+EXPOSE 8501
+
+CMD ["streamlit", "run", "./app/app.py" ]
