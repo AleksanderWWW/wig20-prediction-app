@@ -1,6 +1,8 @@
 import unittest
 from datetime import date
 
+import pandas as pd
+
 from gpw import Wig20Scraper, parse_data
 
 
@@ -35,6 +37,20 @@ class ScraperTest(unittest.TestCase):
         
         self.assertEqual(len(data), 253)
         
+        
+class ParseFuncTest(unittest.TestCase):
+    start = date(2021, 7, 5)
+    end = date(2022, 7, 5)
+    scraper = Wig20Scraper(start, end)
+    data = scraper.get_data()
+    
+    def test_parse_data_returns_dataframe(self):
+        data_parsed = parse_data(self.data)
+        self.assertTrue(type(data_parsed) is pd.DataFrame)
+        
+    def test_parse_data_correct_length(self):
+        data_parsed = parse_data(self.data)
+        self.assertEqual(len(data_parsed), 253)        
         
             
 if __name__ == "__main__":
