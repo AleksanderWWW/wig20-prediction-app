@@ -3,7 +3,7 @@ from datetime import date
 
 import pandas as pd
 
-from gpw import Wig20Scraper, parse_data
+from app.scraper.gpw import Wig20Scraper, parse_data
 
 
 
