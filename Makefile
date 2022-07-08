@@ -8,6 +8,9 @@ setup: requirements.txt
 	venv\Scripts\activate
 	pip install -r requirements.txt
 
+clean:
+    rm -rf __pycache__
+
 
 # with Docker
 
