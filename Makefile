@@ -9,7 +9,7 @@ setup: requirements.txt
 	pip install -r requirements.txt
 
 clean:
-    rm -rf __pycache__
+	rm -rf __pycache__
 
 
 # with Docker
@@ -25,3 +25,8 @@ run-existing-docker:
 
 stop-docker:
 	docker stop wig20-app
+
+# other
+run-tests:
+	# NOTE: you need to be in the root directory of the project
+	python -m unittest
