@@ -30,3 +30,4 @@ For example, to obtain the data between 1st June - 1st July 2022 a request can b
 Despite this being a rather lengthy string, the insertion of relevant parameters is pretty straight-forward (see *app.scraper.gpw* module).
 
 ---
+Author: Aleksander Wojnarowicz
