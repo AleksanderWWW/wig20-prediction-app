@@ -6,8 +6,10 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY ./app ./app
+COPY . .
 
 EXPOSE 8501
 
-CMD ["streamlit", "run", "./app/app.py" ]
+RUN python -m unittest
+
+ENTRYPOINT ["streamlit", "run", "./app/app.py" ]
