@@ -22,13 +22,15 @@ def run_page():
 
     column_chosen = st.selectbox("Choose column to model", train_df.columns)
 
+    lags = st.slider("Number of lags in the model", min_value=1, max_value=len(train_df) // 2 + 1)
+
     model = {
         "Linear regression": train_lr
     }[model_type]
     
     st.table(train_df.head())
 
-    res = model(train_df, "close", 10)
+    res = model(train_df, "close", lags)
 
     predicted = res.predict(steps=len(test_df))
 
