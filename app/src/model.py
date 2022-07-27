@@ -15,7 +15,7 @@ from skforecast.ForecasterAutoregMultiOutput import ForecasterAutoregMultiOutput
 from skforecast.model_selection import grid_search_forecaster
 from skforecast.model_selection import backtesting_forecaster
 
-from models.model_choice import choose_best_from_grid
+from src.model_choice import choose_best_from_grid
 
 
 
