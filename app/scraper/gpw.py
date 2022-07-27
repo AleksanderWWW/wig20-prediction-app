@@ -47,6 +47,7 @@ def parse_data(data: List[Dict[str, float]]) -> pd.DataFrame:
 
     df = pd.DataFrame(data_dict)
     df.set_index("date", inplace=True)
+    df = df.asfreq('B', method="ffill")
     return df
 
 
